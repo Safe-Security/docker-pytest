@@ -1,4 +1,4 @@
-FROM python:3.8-alpine as base
+FROM python:3-alpine as base
 
 RUN mkdir /install
 
@@ -8,7 +8,7 @@ COPY requirements.txt /requirements.txt
 
 RUN pip install --prefix=/install -r /requirements.txt
 
-FROM python:3.8-alpine
+FROM python:3-alpine
 
 COPY --from=base /install /usr/local
 
